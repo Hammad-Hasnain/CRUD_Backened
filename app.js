@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import postModel from './model/postSchema.js';
 import bcrypt, { compare } from 'bcrypt'
 import dotenv from 'dotenv'
+import cors from 'cors'
+
 dotenv.config()
 
 
@@ -20,6 +22,7 @@ mongoose.connection.on("error", (err) => { console.log('Mongo db not connected==
 // body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 
 // get API
